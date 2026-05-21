@@ -118,13 +118,15 @@ footer{
     margin-top: 15%;
     justify-content: center;
     gap: 9%;
+    font-size: 1.2rem;
 }
 
-@media(max-width:768px){
+@media screen and (max-width:770px){
     .data{
         flex-direction: column;
         margin: 20px;
         padding: 20px;
+        align-items: center;
     }
     h2{
         font-size: 1.7rem;
@@ -136,8 +138,19 @@ footer{
         font-size: 1rem;
     }
     img{
-        max-width: 80vw;
+        max-width: 70vw;
         height: auto;
-        margin-left: 5%;
+    }
+    .logo{
+        width: fit-content;
+        background: rgba(165, 42, 42, 0.416);
+        max-height: 7%;
+    }
+    footer{
+        font-size: 0.2rem;
+        display:flex;
+        flex-direction: column;
+        column-gap: 10px;
+        align-items: center;
     }
 }
