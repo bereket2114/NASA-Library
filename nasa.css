@@ -57,7 +57,7 @@ input, button{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
     max-width: 45%;
-    padding: auto;
+    padding: 7px;
     text-align: center;
     transition: all 0.5s ease;
     margin-left: 30%;
@@ -123,12 +123,12 @@ footer{
 footer p,a{
      font-size: 1rem;
 }
-@media (min-width: 300px) and (max-width: 371px ){
+@media (min-width: 300px) and (max-width: 401px){
     .logo{
         margin-top: 10%;
     }
     footer{
-        margin-top: 40%;
+        margin-top: 50%;
     }
     footer p{
         font-size: 0.8rem;
@@ -147,8 +147,12 @@ footer p,a{
     }
     form{
        min-width: 60vw;
-       position: relative;
-       left: 25%;
+       height: fit-content;
+       padding: 20px 10px;
+       margin-left: -4%;
+    }
+    form input,button{
+        padding: 5px;
     }
     label{
         font-size: 1rem;
@@ -168,7 +172,7 @@ footer p,a{
     }
     .data{
         flex-direction: column;
-        margin: 20px;
+        margin: 40px;
         padding: 20px;
         align-items: center;
         text-align: center;
@@ -227,6 +231,9 @@ footer p,a{
     }
     input, button{
         margin-left: 1%;
+    }
+    label{
+        margin-left: 37%;
     }
     
 }
