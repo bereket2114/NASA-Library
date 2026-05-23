@@ -221,6 +221,9 @@ footer p,a{
     .cool{
         margin-left: 25%;
     }
+    .logo{
+        margin-top: 5%;
+    }
 }
 @media (min-width: 800px) and (max-width: 1025px) {
     .welcomeLogo{
