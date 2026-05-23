@@ -124,6 +124,9 @@ footer p,a{
      font-size: 1rem;
 }
 @media (min-width: 300px) and (max-width: 371px ){
+    .logo{
+        margin-top: 10%;
+    }
     footer{
         margin-top: 40%;
     }
@@ -140,12 +143,18 @@ footer p,a{
 
     }
     .logo h2{
-        font-size: 1rem;
+        font-size: 1.1rem;
     }
     form{
        min-width: 60vw;
        position: relative;
        left: 25%;
+    }
+    label{
+        font-size: 1rem;
+    }
+    .title{
+        font-size: 1.2rem;
     }
     .data{
         min-width: 94vw;
