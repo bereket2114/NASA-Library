@@ -12,7 +12,6 @@ body{
     scroll-behavior: smooth; 
 }  
 .logo{
-    font-style: italic;
     font-size: 2.2rem;
     display: block;
     margin-top: 2%;
@@ -117,12 +116,43 @@ h2{
 }
 footer{
     display: flex;
-    margin-top: 15%;
+    margin-top: 27%;
     justify-content: center;
     gap: 9%;
-    font-size: 1.2rem;
 }
+footer p,a{
+     font-size: 1rem;
+}
+@media (min-width: 300px) and (max-width: 371px ){
+    footer{
+        margin-top: 40%;
+    }
+    footer p{
+        font-size: 0.8rem;
+    }
+    footer a{
+        font-size: 0.8rem;
+    }
+    .cool h1{
+        font-size: 1.5rem;
+        position: relative;
+        left: 10%;
 
+    }
+    .logo h2{
+        font-size: 1rem;
+    }
+    form{
+       min-width: 60vw;
+       position: relative;
+       left: 25%;
+    }
+    .data{
+        min-width: 94vw;
+        overflow-x: scroll;
+
+    }
+}
 @media screen and (max-width:800px){
     body{
         font-size: 14px;
@@ -167,6 +197,7 @@ footer{
         align-items: center;
         line-height: 1.6;
         padding-bottom: 30px;
+        margin-top: 40%;
     }    
 } 
 @media (min-width: 800px) and (max-width: 1025px) {
@@ -190,31 +221,5 @@ footer{
     }
     
 }
-@media (min-width: 300px) and (max-width: 371px ){
-    footer p{
-        font-size: 0.8rem;
-    }
-    footer a{
-        font-size: 0.8rem;
-    }
-    .cool h1{
-        font-size: 1.5rem;
-        position: relative;
-        left: 10%;
 
-    }
-    .logo h2{
-        font-size: 1rem;
-    }
-    form{
-       min-width: 60vw;
-       position: relative;
-       left: 25%;
-    }
-    .data{
-        min-width: 94vw;
-        overflow-x: scroll;
-
-    }
-}
 
