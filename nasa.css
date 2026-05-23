@@ -139,7 +139,7 @@ footer p,a{
     .cool h1{
         font-size: 1.5rem;
         position: relative;
-        left: 10%;
+        left: 8%;
 
     }
     .logo h2{
@@ -148,8 +148,8 @@ footer p,a{
     form{
        min-width: 60vw;
        height: fit-content;
-       padding: 20px 10px;
-       margin-left: -4%;
+       padding: 20px 0;
+       margin-left: -8%;
     }
     form input,button{
         padding: 5px;
@@ -169,6 +169,7 @@ footer p,a{
 @media screen and (max-width:800px){
     body{
         font-size: 14px;
+        margin: -18px;
     }
     .data{
         flex-direction: column;
@@ -201,7 +202,9 @@ footer p,a{
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-left: 5%;
     }
+    
     footer{
         font-size: 0.2rem;
         display:flex;
@@ -210,9 +213,15 @@ footer p,a{
         align-items: center;
         line-height: 1.6;
         padding-bottom: 30px;
-        margin-top: 40%;
+        margin: 40% 3% 20% 5%;
+
     }    
 } 
+@media (min-width: 402px) and (max-width:800px){
+    .cool{
+        margin-left: 25%;
+    }
+}
 @media (min-width: 800px) and (max-width: 1025px) {
     .welcomeLogo{
         font-size: 1.5rem;
@@ -234,6 +243,12 @@ footer p,a{
     }
     label{
         margin-left: 37%;
+    }
+    
+}
+@media (min-width: 800px) and (max-width:1030px) {
+    .cool{
+        margin-left: 25%;
     }
     
 }
