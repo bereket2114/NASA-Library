@@ -122,7 +122,17 @@ footer{
     gap: 9%;
     font-size: 1.2rem;
 }
-
+@media (min-width: 300px) and (max-width: 371px ){
+    footer p{
+        font-size: 0.7rem;
+    }
+    .cool h1{
+        font-size: 1.5rem;
+    }
+    .logo h2{
+        font-size: 1rem;
+    }
+}
 @media screen and (max-width:800px){
     body{
         font-size: 14px;
@@ -130,6 +140,7 @@ footer{
     }
     .data{
         flex-direction: column;
+        flex-wrap: nowrap;
         margin: 20px;
         padding: 20px;
         align-items: center;
@@ -138,6 +149,8 @@ footer{
         justify-content: space-between;
         padding: 15px;
         min-height: 100vh;
+        min-width: 100vw;
+        
     }
     h2{
         font-size: 1.7rem;
@@ -185,10 +198,11 @@ footer{
         align-items: center;
         max-width: 50%;
         position: relative;
-        left: 25%;
+        left: 37%;
     }
     input, button{
         margin-left: 1%;
     }
     
 }
+
