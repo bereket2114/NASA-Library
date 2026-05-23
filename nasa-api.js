@@ -1,8 +1,8 @@
 
             //////// NASA APIs PRACTICE ///////
 
-
-document.querySelector('button').addEventListener('click', getNasa)
+const button = document.querySelector('button')
+button.addEventListener('click', getNasa)
 
 function getNasa(){
     const choice = document.querySelector('input').value
@@ -28,5 +28,11 @@ function getNasa(){
         console.log(`error is ${err}`)
     });
 }
+//This line code instruct my web to hear 'Enter' by keyDown type of  EventListener beside of Click Action!!
+button.addEventListener('keydown', (event)=>{
+    if(event.key === 'Enter'){
+        getNasa();  // this is saying do exact instruction for this type of event Listener as well,So I called the above function to excute here as well !!
+    }
+})
 
 
