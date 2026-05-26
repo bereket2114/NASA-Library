@@ -1,12 +1,11 @@
 
-            //////// NASA APIs PRACTICE ///////
+            // NASA APIs PRACTICE
 
 const button = document.querySelector('button')
 button.addEventListener('click', getNasa)
 
 function getNasa(){
-    const choice = document.querySelector('input').value
-    console.log(choice)          
+    const choice = document.querySelector('input').value    
     let myUrl = `https://api.nasa.gov/planetary/apod?api_key=yKdrTEe4xzSXk0HRk33dfCcMCB8XSVyUoVeDceo9&date=${choice}`      
 
     fetch(myUrl)
