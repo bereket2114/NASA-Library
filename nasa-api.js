@@ -1,8 +1,11 @@
-
+// set up code for voice reader
+const synth = window.speechSynthesis;
             // NASA APIs PRACTICE
 
 const button = document.querySelector('button')
 button.addEventListener('click', getNasa)
+const voice = document.querySelector('.fa-microphone')
+voice.addEventListener('click', speakThis)
 
 function getNasa(){
     const choice = document.querySelector('input').value    
@@ -21,11 +24,26 @@ function getNasa(){
         document.querySelector('.title').innerText = data.title
         
         document.querySelector('p').innerText = data.explanation
+        
 
     })
     .catch(err =>{
         console.log(`error is ${err}`)
     });
+}
+
+function speakThis() {
+    const choice = document.querySelector('input').value    
+    const myUrl = `https://api.nasa.gov/planetary/apod?api_key=yKdrTEe4xzSXk0HRk33dfCcMCB8XSVyUoVeDceo9&date=${choice}`      
+
+   fetch(myUrl)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data)
+    let talkThis = new SpeechSynthesisUtterance(data.explanation)
+    synth.speak(talkThis)
+    })
+    .catch(err => console.error(err))
 }
 //This line code instruct my web to hear 'Enter' by keyDown type of  EventListener beside of Click Action!!
 button.addEventListener('keydown', (event)=>{
