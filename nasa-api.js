@@ -4,8 +4,13 @@ const synth = window.speechSynthesis;
 
 const button = document.querySelector('button')
 button.addEventListener('click', getNasa)
+
 const voice = document.querySelector('.fa-microphone')
 voice.addEventListener('click', speakThis)
+
+const stopVoice = document.querySelector('.fa-microphone')
+voice.addEventListener('click', stopSpeaking)
+
 
 function getNasa(){
     const choice = document.querySelector('input').value    
@@ -15,15 +20,20 @@ function getNasa(){
     .then(res => res.json())
     .then(data => {
         console.log(data)
+        const image = document.querySelector("img");
+        const video = document.querySelector("iframe");
+        const title = document.querySelector(".title");
+        const description = document.querySelector(".description");
+
         if(data.media_type === 'image'){
-            document.querySelector('img').src = data.hdurl
+            image.src = data.hdurl
         }else if(data.media_type === 'video'){
-            document.querySelector('iframe').src = data.url
+            video.src = data.url
         }
         
-        document.querySelector('.title').innerText = data.title
+        title.innerText = data.title
         
-        document.querySelector('p').innerText = data.explanation
+        description.innerText = data.explanation
         
 
     })
@@ -39,17 +49,39 @@ function speakThis() {
    fetch(myUrl)
     .then(res => res.json())
     .then(data => {
-        console.log(data)
-    let talkThis = new SpeechSynthesisUtterance(data.explanation)
-    synth.speak(talkThis)
+        console.log(data);
+    let talkThis = new SpeechSynthesisUtterance(data.explanation);
+    synth.speak(talkThis);
+    const mic = document.querySelector('.fa-microphone')
+    mic.classList.toggle("listening");
+
     })
     .catch(err => console.error(err))
 }
+
+function stopSpeaking(){
+    const choice = document.querySelector('input').value    
+    const myUrl = `https://api.nasa.gov/planetary/apod?api_key=yKdrTEe4xzSXk0HRk33dfCcMCB8XSVyUoVeDceo9&date=${choice}`      
+
+   fetch(myUrl)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+
+        synth.cancel();
+        const mic = document.querySelector('.fa-microphone')
+        mic.classList.remove("listening");
+
+    })
+    .catch(err => console.error(err))
+}
+
+
 //This line code instruct my web to hear 'Enter' by keyDown type of  EventListener beside of Click Action!!
-button.addEventListener('keydown', (event)=>{
+/*button.addEventListener('keydown', (event)=>{
     if(event.key === 'Enter'){
         getNasa();  // this is saying do exact instruction for this type of event Listener as well,So I called the above function to excute here as well !!
     }
-})
+})  */
 
 

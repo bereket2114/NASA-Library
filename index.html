@@ -1,47 +1,311 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple NASA Library</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="nasa.css">
+
+    <title>NASA Library | Explore the Universe</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="nasa-libarary-web.css">
+
 </head>
+
 <body>
-    <header class="logo">
-        <h2 class="welcomeLogo" style="font-style: italic;"><strong style="color: yellowgreen;">NASA</strong>'s LIBRARY</h2>
-    </header>
-    <div class="container">
-        <div class="cool">
-            <h1>GET COOL NASA FILE<span class="emoji">😎</span></h1>
-        </div>
-        <form action="">
-            <label for="find">NASA file</label>
-            <input id="find" type="date"><br>
-            <button type="button">Get file</button>
+
+<!-- ==========================
+        HEADER
+=========================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-rocket"></i>
+
+        <h2>
+
+            NASA
+            <span>Library</span>
+
+        </h2>
+
+    </div>
+
+</header>
+
+<!-- ==========================
+        HERO
+=========================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Explore the Universe
+
+        </h1>
+
+        <p>
+
+            Search NASA's Astronomy Picture of the Day archive and discover
+            incredible images, videos and stories from space.
+
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+        SEARCH CARD
+=========================== -->
+
+<section class="search-section">
+
+    <div class="search-card">
+
+        <h2>
+
+            Astronomy Picture of the Day
+
+        </h2>
+
+        <p>
+
+            Select any date and discover what NASA published.
+
+        </p>
+
+        <form id="apodForm">
+
+            <div class="input-group">
+
+                <label for="find">
+
+                    <i class="fa-solid fa-calendar-days"></i>
+
+                    Select Date
+
+                </label>
+
+                <input
+                    id="find"
+                    type="date"
+                    required>
+
+            </div>
+
+            <button
+                id="getData"
+                type="submit">
+
+                <i class="fa-solid fa-rocket"></i>
+
+                Get NASA File
+
+            </button>
+
         </form>
 
-        <section class="data">
-            <div class="img-data">
-                <h2 class="title"></h2>
-                <img src="" alt="">
-                <iframe src= "" frameborder="0"></iframe> 
-            </div>
-            <div class="para">
-               <i class="fa-solid fa-microphone" style=""></i>
-               <p></p>
-            </div>
-           
-        </section>
     </div>
-    <footer class="foot">
-        <p>&copy; 2026 Bereket Woldemariam. All rights reserved.</p>
-        <p> Inspired by :<a href="https://api.nasa.gov/" style="color: white;" target="_blank">NASA Open APIs</a> </p>
-        <a href="mailto:bereketwoldemariyam13@gmail.com"  style="color: white; font-size: 1rem;margin-bottom: 2%;">Email me</a>
-    </footer>
-       
-    <script type="text/javaScript" src="nasa-api.js"></script>
+
+</section>
+
+<!-- ==========================
+        LOADING
+=========================== -->
+
+<div class="loader hidden">
+
+    <div class="spinner"></div>
+
+    <h3>
+
+        Contacting NASA...
+
+    </h3>
+
+</div>
+
+<!-- ==========================
+        MESSAGE
+=========================== -->
+
+<div class="message"></div>
+
+<!-- ==========================
+        RESULT CARD
+=========================== -->
+
+<section class="result-section">
+
+<div class="result-card">
+
+<h2 class="result-heading">
+
+Astronomy Picture of the Day
+
+</h2>
+
+<h1 class="title">
+
+Title appears here
+
+</h1>
+
+<div class="date-badge">
+
+<i class="fa-solid fa-calendar"></i>
+
+<span class="date-output">
+
+Date
+
+</span>
+
+</div>
+
+<div class="media-container">
+
+<img
+class="nasa-image"
+src=""
+alt="NASA Picture"
+loading="lazy">
+
+<iframe
+class="nasa-video"
+src=""
+allowfullscreen>
+
+</iframe>
+
+</div>
+
+<div class="description-card">
+
+<h3>
+
+<i class="fa-solid fa-circle-info"></i>
+
+Description
+
+</h3>
+
+<p class="description">
+
+NASA explanation will appear here after
+you search for a date.
+
+</p>
+
+            <!-- ==========================
+                    SPEECH BUTTON
+            =========================== -->
+
+            <div class="speech-controls">
+
+                <button
+                    class="mic-btn"
+                    id="micButton"
+                    type="button"
+                    title="Read Description">
+
+                    <i class="fa-solid fa-microphone"></i>
+
+                    <span>
+                        Read Description
+                    </span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+        FOOTER
+=========================== -->
+
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <h2>
+
+            <i class="fa-solid fa-earth-americas"></i>
+
+            NASA Library
+
+        </h2>
+
+        <p>
+
+            Powered by NASA's Astronomy Picture of the Day API.
+
+        </p>
+
+        <div class="footer-links">
+
+            <a
+            href="https://api.nasa.gov/"
+            target="_blank">
+
+                NASA Open APIs
+
+            </a>
+
+            <span>|</span>
+
+            <a
+            href="mailto:bereketwoldemariyam13@gmail.com">
+
+                Contact Developer
+
+            </a>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Bereket Woldemariyam.
+            All Rights Reserved.
+
+        </p>
+
+    </div>
+
+</footer>
+
+<!-- ==========================
+        JAVASCRIPT
+=========================== -->
+
+<script src="nasa-library-api.js"></script>
+
 </body>
+
 </html>
-    

@@ -1,0 +1,1270 @@
+/* ==========================================================
+   NASA LIBRARY
+   Modern Glassmorphism UI
+   Part 1
+========================================================== */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#fff;
+
+    background:
+        radial-gradient(circle at top,#204a87 0%,#081220 45%,#02050b 100%);
+
+    position:relative;
+}
+
+/* ===========================
+   ANIMATED STARS
+=========================== */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+
+    background-image:
+        radial-gradient(white 1px,transparent 1px),
+        radial-gradient(#8fd8ff 1px,transparent 1px),
+        radial-gradient(white 1px,transparent 1px);
+
+    background-size:
+        140px 140px,
+        220px 220px,
+        300px 300px;
+
+    opacity:.45;
+
+    animation:starsMove 80s linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes starsMove{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(-300px);
+
+    }
+
+}
+
+/* ===========================
+   HEADER
+=========================== */
+
+.header{
+
+    position:sticky;
+    top:0;
+
+    z-index:1000;
+
+    backdrop-filter:blur(18px);
+
+    background:rgba(255,255,255,.05);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.logo{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    padding:18px 0;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+}
+
+.logo i{
+
+    font-size:2rem;
+
+    color:#7ad8ff;
+
+}
+
+.logo h2{
+
+    font-size:1.8rem;
+
+    letter-spacing:1px;
+
+}
+
+.logo span{
+
+    color:#7ad8ff;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    width:min(1200px,92%);
+
+    margin:70px auto 40px;
+
+    text-align:center;
+
+}
+
+.hero-content{
+
+    max-width:760px;
+
+    margin:auto;
+
+}
+
+.hero h1{
+
+    font-size:clamp(2.6rem,6vw,4.5rem);
+
+    font-weight:800;
+
+    line-height:1.15;
+
+    margin-bottom:20px;
+
+    background:linear-gradient(
+        to right,
+        #ffffff,
+        #7fd9ff,
+        #ffffff
+    );
+
+    -webkit-background-clip:text;
+    color:transparent;
+
+}
+
+.hero p{
+
+    font-size:1.15rem;
+
+    line-height:1.8;
+
+    color:#dceeff;
+
+}
+
+/* ===========================
+   SEARCH SECTION
+=========================== */
+
+.search-section{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+}
+
+.search-card{
+
+    background:rgba(255,255,255,.07);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:28px;
+
+    padding:40px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+}
+
+.search-card h2{
+
+    text-align:center;
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+
+.search-card p{
+
+    text-align:center;
+
+    color:#dceeff;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   FORM
+=========================== */
+
+#apodForm{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:20px;
+
+    align-items:end;
+
+}
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+.input-group label{
+
+    font-weight:600;
+
+    color:#fff;
+
+}
+
+.input-group i{
+
+    color:#7fd9ff;
+
+    margin-right:6px;
+
+}
+
+input[type="date"]{
+
+    width:260px;
+
+    padding:15px 18px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#fff;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+}
+
+input[type="date"]:focus{
+
+    box-shadow:
+        0 0 0 4px rgba(127,217,255,.35);
+
+}
+
+#getData{
+
+    padding:15px 28px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1f8cff,
+            #00c6ff
+        );
+
+    transition:.35s;
+
+    box-shadow:
+        0 12px 25px rgba(0,180,255,.35);
+
+}
+
+#getData:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+    box-shadow:
+        0 18px 35px rgba(0,180,255,.45);
+
+}
+
+#getData i{
+
+    margin-right:8px;
+
+}
+
+/* ===========================
+   LOADER
+=========================== */
+
+.loader{
+
+    width:min(1200px,92%);
+
+    margin:35px auto;
+
+    text-align:center;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+.spinner{
+
+    width:60px;
+
+    height:60px;
+
+    margin:auto;
+
+    border:6px solid rgba(255,255,255,.2);
+
+    border-top:6px solid #56d2ff;
+
+    border-radius:50%;
+
+    animation:spin 1s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
+}
+
+.loader h3{
+
+    margin-top:18px;
+
+    font-weight:500;
+
+    color:#dceeff;
+
+}
+
+/* ===========================
+   MESSAGE
+=========================== */
+
+.message{
+
+    width:min(1200px,92%);
+
+    margin:15px auto;
+
+    text-align:center;
+
+    font-weight:600;
+
+    min-height:28px;
+
+}
+
+.message.success{
+
+    color:#62ffae;
+
+}
+
+.message.error{
+
+    color:#ff8e8e;
+
+}
+
+/* ==========================================================
+   RESULT SECTION
+========================================================== */
+
+.result-section{
+
+    width:min(1200px,92%);
+    margin:60px auto;
+
+}
+
+.result-card{
+
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    padding:35px;
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ===========================
+   RESULT TITLE
+=========================== */
+
+.result-heading{
+
+    text-align:center;
+
+    color:#79d8ff;
+
+    font-size:1rem;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    margin-bottom:15px;
+
+}
+
+.title{
+
+    text-align:center;
+
+    font-size:clamp(2rem,5vw,3rem);
+
+    font-weight:700;
+
+    line-height:1.3;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   DATE BADGE
+=========================== */
+
+.date-badge{
+
+    width:max-content;
+
+    margin:0 auto 35px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 22px;
+
+    border-radius:40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #204c8f,
+            #1678ff
+        );
+
+    box-shadow:
+        0 12px 25px rgba(0,0,0,.25);
+
+}
+
+.date-badge i{
+
+    color:#7fe0ff;
+
+}
+
+.date-output{
+
+    font-weight:600;
+
+}
+
+/* ===========================
+   MEDIA
+=========================== */
+
+.media-container{
+
+    position:relative;
+
+    margin-bottom:40px;
+
+}
+
+.nasa-image{
+
+    width:100%;
+
+    display:none;
+
+    border-radius:20px;
+
+    object-fit:cover;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.45);
+
+    transition:.5s;
+
+    animation:imageZoom .8s ease;
+
+}
+
+.nasa-image:hover{
+
+    transform:scale(1.02);
+
+}
+
+@keyframes imageZoom{
+
+    from{
+
+        transform:scale(.95);
+
+        opacity:0;
+
+    }
+
+    to{
+
+        transform:scale(1);
+
+        opacity:1;
+
+    }
+
+}
+
+.nasa-video{
+
+    width:100%;
+
+    height:650px;
+
+    display:none;
+
+    border:none;
+
+    border-radius:20px;
+
+    background:#000;
+
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.45);
+
+}
+
+/* ===========================
+   DESCRIPTION CARD
+=========================== */
+
+.description-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:30px;
+
+}
+
+.description-card h3{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+    font-size:1.35rem;
+
+}
+
+.description-card h3 i{
+
+    color:#63d4ff;
+
+}
+
+.description{
+
+    color:#e9f4ff;
+
+    font-size:1.05rem;
+
+    line-height:1.9;
+
+    text-align:justify;
+
+}
+
+/* ===========================
+   SPEECH
+=========================== */
+
+.speech-controls{
+
+    margin-top:35px;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+/* ===========================
+   MICROPHONE BUTTON
+=========================== */
+
+.mic-btn{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:16px 28px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    color:#fff;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    background:
+        linear-gradient(
+            135deg,
+            #1f8cff,
+            #00cfff
+        );
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 12px 30px rgba(0,170,255,.35);
+
+}
+
+.mic-btn:hover{
+
+    transform:
+        translateY(-4px)
+        scale(1.03);
+
+}
+
+.mic-btn i{
+
+    font-size:1.3rem;
+
+}
+
+/* ===========================
+   LISTENING STATE
+=========================== */
+
+.mic-btn i.listening{
+    
+    animation:
+        pulseMic 1s infinite,
+        rotateMic 3s linear infinite;
+
+}
+
+.mic-btn .listening::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#ff4040;
+
+    top:-2px;
+
+    right:-2px;
+
+    animation:blink 1s infinite;
+
+}
+
+@keyframes pulseMic{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    50%{
+
+        transform:scale(1.35);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+@keyframes rotateMic{
+
+    from{
+
+        rotate:0deg;
+
+    }
+
+    to{
+
+        rotate:360deg;
+
+    }
+
+}
+
+@keyframes blink{
+
+    0%{
+
+        opacity:1;
+
+    }
+
+    50%{
+
+        opacity:.25;
+
+    }
+
+    100%{
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.footer{
+
+    width:100%;
+
+    margin-top:80px;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(20px);
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-content{
+
+    width:min(1200px,92%);
+
+    margin:auto;
+
+    padding:45px 0;
+
+    text-align:center;
+
+}
+
+.footer-content h2{
+
+    font-size:2rem;
+
+    margin-bottom:15px;
+
+}
+
+.footer-content h2 i{
+
+    color:#72d6ff;
+
+    margin-right:10px;
+
+}
+
+.footer-content p{
+
+    color:#dbefff;
+
+    line-height:1.8;
+
+}
+
+.footer-links{
+
+    margin:25px 0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.footer-links a{
+
+    color:#7fdfff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.35s;
+
+}
+
+.footer-links a:hover{
+
+    color:#ffffff;
+
+}
+
+.copyright{
+
+    margin-top:20px;
+
+    opacity:.75;
+
+    font-size:.95rem;
+
+}
+
+/* ==========================================================
+   CUSTOM SCROLLBAR
+========================================================== */
+
+::-webkit-scrollbar{
+
+    width:12px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#071220;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+        #2196f3,
+        #00d4ff
+    );
+
+    border-radius:50px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:linear-gradient(
+        #4cb6ff,
+        #54f1ff
+    );
+
+}
+
+/* ==========================================================
+   FADE EFFECT
+========================================================== */
+
+.result-card,
+.search-card,
+.hero-content{
+
+    animation:fadeIn .9s ease;
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(35px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media(max-width:1000px){
+
+.hero h1{
+
+font-size:3rem;
+
+}
+
+.nasa-video{
+
+height:500px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.search-card{
+
+padding:25px;
+
+}
+
+#apodForm{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.input-group{
+
+width:100%;
+
+}
+
+input[type="date"]{
+
+width:100%;
+
+}
+
+#getData{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.title{
+
+font-size:2rem;
+
+}
+
+.description{
+
+font-size:1rem;
+
+}
+
+.mic-btn{
+
+width:100%;
+
+justify-content:center;
+
+}
+
+.nasa-video{
+
+height:350px;
+
+}
+
+}
+
+@media(max-width:480px){
+
+.hero{
+
+margin-top:40px;
+
+}
+
+.hero h1{
+
+font-size:2.3rem;
+
+}
+
+.hero p{
+
+font-size:1rem;
+
+}
+
+.logo h2{
+
+font-size:1.5rem;
+
+}
+
+.search-card{
+
+padding:20px;
+
+}
+
+.result-card{
+
+padding:20px;
+
+}
+
+.description-card{
+
+padding:20px;
+
+}
+
+.footer-content{
+
+padding:35px 10px;
+
+}
+
+.footer-content h2{
+
+font-size:1.5rem;
+
+}
+
+.footer-links{
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+}
+
+/* ==========================================================
+   EXTRA HOVER EFFECTS
+========================================================== */
+
+.result-card:hover{
+
+transform:translateY(-4px);
+
+transition:.4s;
+
+}
+
+.search-card:hover{
+
+transform:translateY(-3px);
+
+transition:.4s;
+
+}
+
+.nasa-image{
+
+cursor:pointer;
+
+}
+
+.nasa-image:hover{
+
+box-shadow:
+0 25px 60px rgba(0,0,0,.55);
+
+}
+
+/* ==========================================================
+   GLOWING BORDER
+========================================================== */
+
+.result-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:4px;
+
+background:linear-gradient(
+90deg,
+#00d2ff,
+#4facfe,
+#00d2ff
+);
+
+}
+
+.search-card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:4px;
+
+background:linear-gradient(
+90deg,
+#4facfe,
+#00d2ff,
+#4facfe
+);
+
+}
+
+/* Ensure pseudo-elements position correctly */
+
+/* Ensure pseudo-elements position correctly */
+
+.result-card,
+.search-card{
+
+    position:relative;
+    overflow:hidden;
+
+}
